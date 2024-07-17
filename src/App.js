@@ -1,7 +1,8 @@
 import Form from "./components/Form";
+import Home from "./components/Home";
 import Navbar from "./components/NavBar";
 import { useState } from "react";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 
   const [users, setUsers] = useState({
@@ -10,14 +11,18 @@ function App() {
     job: 'Developer job',
   });
   return (
-    <div>
-      <Navbar />
-      <div className="container mx-auto">
-        <div>
-          <Form label="Name Is: " users={users.name} />
-        </div>
-      </div>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <div className="container mx-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+          </Routes>
+        </div >
+
+      </BrowserRouter>
+    </>
   );
 }
 

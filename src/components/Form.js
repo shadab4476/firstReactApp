@@ -16,7 +16,7 @@ function Form(test) {
     const GenerateNum = async (e) => {
         e.target.children[0].classList.remove("hidden");
         try {
-            await axios.get("http://localhost:8000/api/users").then((res ) => {
+            await axios.get("http://localhost:8000/api/users").then((res) => {
                 console.log(res);
                 // setRandNum(res.data[0].name + " " + res.data[0].email);
             });
